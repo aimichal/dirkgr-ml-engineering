@@ -1,0 +1,38 @@
+budget: ai2/oe-training
+description: Benchmarking all_reduce performance
+tasks:
+- arguments:
+  - /bin/bash
+  - network/benchmarks/all_reduce_bench_beaker.sh
+  command:
+  - bash
+  - -c
+  - curl -fsSL https://raw.githubusercontent.com/dirkgr/ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench_beaker.sh | bash
+  constraints:
+    cluster:
+    - ai2/jupiter-cirrascale-2
+  context:
+    preemptible: true
+    priority: normal
+  envVars:
+  - name: GANTRY_VERSION
+    value: 1.8.4
+  - name: GANTRY_TASK_NAME
+    value: all_reduce_bench
+  - name: OMP_NUM_THREADS
+    value: '16'
+  hostNetworking: true
+  image:
+    beaker: petew/olmo-torch23-gantry
+  leaderSelection: true
+  name: all_reduce_bench
+  propagateFailure: true
+  propagatePreemption: true
+  replicas: 2
+  resources:
+    gpuCount: 8
+    sharedMemory: 10GiB
+  result:
+    path: /results
+  synchronizedStartTimeout: 300000000000
+version: v2
