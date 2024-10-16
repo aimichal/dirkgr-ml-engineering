@@ -7,7 +7,7 @@ tasks:
   command:
   - bash
   - -c
-  - curl -fsSL https://raw.githubusercontent.com/dirkgr/ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench_beaker.sh | bash
+  - curl -fsSL https://raw.githubusercontent.com/dirkgr/ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench_beaker.sh | bash -s 2
   constraints:
     cluster:
     - ai2/jupiter-cirrascale-2

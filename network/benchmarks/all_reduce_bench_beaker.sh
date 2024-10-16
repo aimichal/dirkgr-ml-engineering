@@ -2,7 +2,8 @@
 
 set -exuo pipefail
 
-NUM_NODES=2
+NUM_NODES=$1
+shift
 
 set -u
 
