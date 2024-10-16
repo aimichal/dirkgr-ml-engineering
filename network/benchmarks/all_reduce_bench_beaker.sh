@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -exuo pipefail
+set -exo pipefail
 
 NUM_NODES=2
 
@@ -29,6 +29,8 @@ if [ -z "$BEAKER_JOB_ID" ]; then
     --timeout=-1 \
     -- /bin/bash ml-engineering/network/benchmarks/all_reduce_bench_beaker.sh
 else
+  set -u
+
   conda shell.bash activate base
   export NCCL_DEBUG=INFO
   export NCCL_IB_HCA="^=mlx5_bond_0"
