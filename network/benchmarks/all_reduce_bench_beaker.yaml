@@ -34,5 +34,5 @@ tasks:
     sharedMemory: 10GiB
   result:
     path: /results
-  synchronizedStartTimeout: 300000000000
+  synchronizedStartTimeout: 250s
 version: v2
