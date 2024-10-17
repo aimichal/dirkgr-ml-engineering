@@ -10,7 +10,7 @@ tasks:
   - curl -fsSL https://raw.githubusercontent.com/aimichal/dirkgr-ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench_beaker.sh | bash -s 2
   constraints:
     cluster:
-    - ai2/jupiter-cirrascale-2
+    - ai2/augusta-google-1
   context:
     preemptible: true
     priority: normal
