@@ -13,7 +13,7 @@ export NCCL_IB_HCA="^=mlx5_bond_0"
 export NCCL_SOCKET_IFNAME=ib
 export TORCH_DIST_INIT_BARRIER=1
 
-curl -O https://raw.githubusercontent.com/dirkgr/ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench.py
+curl -O https://raw.githubusercontent.com/aimichal/dirkgr-ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench.py
 
 torchrun \
 	--nnodes "${NUM_NODES}:${NUM_NODES}" \
