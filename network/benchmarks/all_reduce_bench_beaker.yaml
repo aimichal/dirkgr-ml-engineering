@@ -23,7 +23,7 @@ tasks:
     value: '16'
   hostNetworking: true
   image:
-    beaker: petew/olmo-torch23-gantry
+    beaker: michalg/augusta-base-2
   leaderSelection: true
   name: all_reduce_bench
   propagateFailure: true
