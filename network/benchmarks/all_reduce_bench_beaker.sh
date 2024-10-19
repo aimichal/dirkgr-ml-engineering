@@ -51,6 +51,17 @@ export NCCL_FASTRAK_LLCM_DEVICE_DIRECTORY=/dev/aperture_devices
 # End Augusta env vars
 # ------------------------------------------------
 
+# ------------------------------------------------
+# Debugging env vars
+# ------------------------------------------------
+
+# Enable Python's fault handler: https://docs.python.org/3/library/faulthandler.html
+export PYTHONFAULTHANDLER=1
+
+# ------------------------------------------------
+# End debugging env vars
+# ------------------------------------------------
+
 export TORCH_DIST_INIT_BARRIER=1
 
 curl -O https://raw.githubusercontent.com/aimichal/dirkgr-ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench.py
