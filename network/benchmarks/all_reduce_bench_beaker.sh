@@ -7,7 +7,9 @@ shift
 
 set -u
 
-conda shell.bash activate base
+# Try without conda
+
+# conda shell.bash activate base
 
 # ------------------------------------------------
 # Environment variables set by running this on an augusta machine:
