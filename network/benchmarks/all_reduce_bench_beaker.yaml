@@ -23,7 +23,7 @@ tasks:
     value: '16'
   hostNetworking: true
   image:
-    beaker: michalg/augusta-base-2
+    beaker: michalg/augusta-base-7
   leaderSelection: true
   name: all_reduce_bench
   propagateFailure: true
