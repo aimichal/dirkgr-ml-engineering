@@ -70,8 +70,8 @@ echo Env vars are:
 echo
 env | grep -e ^LD_ -e ^NCCL -e ^BEAKER_ | sort
 echo
-echo Sleeping 5 seconds so you can ^C to abort.
-sleep 5
+#echo Sleeping 5 seconds so you can ^C to abort.
+#sleep 5
 
 # ------------------------------------------------
 # End showing relevant env vars
