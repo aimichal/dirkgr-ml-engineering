@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-set -exuo pipefail
-
 NUM_NODES=$1
 shift
-
-set -u
-
-# Try without conda
-
-# conda shell.bash activate base
 
 # ------------------------------------------------
 # Environment variables set by running this on an augusta machine:
@@ -40,14 +32,18 @@ export NCCL_TUNER_CONFIG_PATH=/var/lib/tcpxo/lib64/a3plus_tuner_config.textproto
 export NCCL_SHIMNET_GUEST_CONFIG_CHECKER_CONFIG_FILE=/var/lib/tcpxo/lib64/a3plus_guest_config.textproto
 export NCCL_FASTRAK_PLUGIN_ACCEPT_TIMEOUT_MS=600000
 export NCCL_NVLS_ENABLE=0
-export NCCL_DEBUG=TRACE # was WARN in nccl-env-profile.sh
-export NCCL_DEBUG_SUBSYS=ALL #was: INIT,NET,ENV,COLL,GRAPH
+export NCCL_DEBUG=WARN
 export NCCL_FASTRAK_CTRL_DEV=enp0s12
 export NCCL_FASTRAK_IFNAME=enp6s0,enp7s0,enp13s0,enp14s0,enp134s0,enp135s0,enp141s0,enp142s0
 export NCCL_SOCKET_IFNAME=enp0s12
 export NCCL_USE_SNAP=1
 export NCCL_FASTRAK_USE_LLCM=1
 export NCCL_FASTRAK_LLCM_DEVICE_DIRECTORY=/dev/aperture_devices
+
+# To debug NCCL problems, set:
+#
+# export NCCL_DEBUG=TRACE
+# export NCCL_DEBUG_SUBSYS=ALL
 
 # ------------------------------------------------
 # End Augusta env vars
@@ -65,6 +61,21 @@ export PYTHONFAULTHANDLER=1
 # ------------------------------------------------
 
 export TORCH_DIST_INIT_BARRIER=1
+
+# ------------------------------------------------
+# Show relevant env vars
+# ------------------------------------------------
+
+echo Env vars are:
+echo
+env | grep -e ^LD_ -e ^NCCL -e ^BEAKER_ | sort
+echo
+
+# ------------------------------------------------
+# End showing relevant env vars
+# ------------------------------------------------
+
+set -exuo pipefail
 
 curl -O https://raw.githubusercontent.com/aimichal/dirkgr-ml-engineering/refs/heads/Beaker/network/benchmarks/all_reduce_bench.py
 
