@@ -12,7 +12,7 @@ shift
 # so they are deduplicated below.
 # ------------------------------------------------
 
-export LD_LIBRARY_PATH="/var/lib/tcpxo/lib64:${LD_LIBRARY_PATH}"
+#export LD_LIBRARY_PATH="/var/lib/tcpxo/lib64:${LD_LIBRARY_PATH}"
 export NCCL_CROSS_NIC=0
 export NCCL_ALGO=Ring,Tree
 export NCCL_PROTO=Simple
